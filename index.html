@@ -6,23 +6,48 @@
     <title>DevSquare - A social student platform</title>
     <link rel="icon" href="/images/DS.png" />
     <script type="module" src="/src/app.js"></script>
+    <script type="module" src="/darkMode.mjs"></script>
+    <link rel="stylesheet" href="/src/css/input.css" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
   </head>
 
-  <body class="body">
-    <header>
-      <div class="max-size-header">
+  <body class="bg-background">
+    <header class="container max-w-6xl mx-auto flex flex-col sm:flex-row">
+      <div class="w-full h-40 bg-background flex items-center mx-10">
         <a href="/">
-          <img src="/images/DevSquare.png" alt="Dev Square Logo" />
+          <img
+            class="h-20 w-80 align-baseline-left"
+            src="/images/DevSquare.png"
+            alt="Dev Square Logo"
+          />
         </a>
-        <nav>
-          <a class="deco-line" href="/">Home</a>
-          <a class="deco-line" id="go-profile-btn" href="/profile/">My Profile</a>
-          <button type="button" id="logout-button">Logout</button>
+        <nav
+          class="text-text font-medium text-2xl flex justify-end gap-6 w-full"
+        >
+          <a class="hover:text-primary" href="/">Home</a>
+          <a class="hover:text-primary" id="go-profile-btn" href="/profile/"
+            >My Profile</a
+          >
+          <button class="hover:text-primary" type="button" id="logout-button">
+            Logout
+          </button>
+          <div class="flex items-starts">
+            <img
+              class="moon cursor-pointer w-5"
+              src="/images/moon-solid.svg"
+              alt=""
+            />
+            <img
+              class="sun cursor-pointer w-5"
+              src="/images/sun-solid.svg"
+              alt=""
+            />
+          </div>
         </nav>
       </div>
     </header>
 
-    <main class="regular-use">
+    <main class="bg-accent">
       <section id="hero-section">
         <h1><img src="/images/DevSquare.png" alt="Dev Square Logo" /></h1>
       </section>
