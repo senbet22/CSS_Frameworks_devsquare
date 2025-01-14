@@ -19,7 +19,8 @@ export function renderPosts(posts, pageCount) {
 
   posts.forEach((post) => {
     const postElement = document.createElement("a");
-    postElement.className = "post-article";
+    postElement.className =
+      "post-article bg-background-200 shadow-md mx-5 my-6 px-6";
     postElement.href = `/post/?post=${post.id}`;
 
     const imgSrc = post.media && post.media.url ? post.media.url : "";
@@ -28,22 +29,24 @@ export function renderPosts(posts, pageCount) {
     const timeAgo = timeSinceCreated(post.created);
 
     postElement.innerHTML = `
-            <h2> ${post.title} </h2>   
+            <h2 class="text-2xl break-words py-8"> ${post.title} </h2>   
             <div class="temp-bg">
-                <img class="post-img" 
+                <img class="post-img rounded w-full max-h-64 object-contain" 
                 src="${imgSrc ? imgSrc : "/images/noroff-logo.png"}" 
                 alt="${imgSrc ? imgAlt : "noroff logo"}">
             </div>
-            <div class="intel-wrapper">
-                <div class="profile-user">
-                    <img class="avatar" 
+            <div class="intel-wrapper flex items-start justify-between space-x-4 mt-4">
+                <div class="profile-user py-2">
+                    <img class="avatar w-10 h-10 rounded" 
                     src="${post.author.avatar.url}" 
                     alt="${post.author.avatar.alt}">
-                    <p><b>${post.author.name}</b></p>
+                    <p class="font-bold">${post.author.name}</p>
                 </div>
-                <p id="comments-length"><span>💬</span><b>${post.comments.length}</b></p>                
+                <p class="" id="comments-length"><span>💬</span><b>${
+                  post.comments.length
+                }</b></p>                
             </div>
-            <div class="post-info">
+            <div class="post-info mt-4 flex justify-between">
                 <p>${post.created.slice(0, 10)}</p>
                 <p class="time-stamp">${timeAgo}</p>
             </div>

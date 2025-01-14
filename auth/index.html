@@ -6,28 +6,61 @@
     <title>DevSquare - Auth</title>
     <link rel="icon" href="/images/DS.png" />
     <script type="module" src="/src/app.js"></script>
+    <link rel="stylesheet" href="/src/css/input.css" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
   </head>
   <body>
-    <main class="form-use">
-      <div class="max-small-container">
-        <section id="auth">
-          <h1>Auth</h1>
-          <div>
-            <a class="button common-btn" href="./login/">Login</a>
-            <p>or</p>
-            <a class="button common-btn" href="./register/">Register</a>
+    <main
+      class="form-use flex flex-col items-center justify-center min-h-screen bg-background-50 text-text-900 px-6"
+    >
+      <div
+        class="max-small-container bg-background-100 border border-background-300 rounded-lg p-8 shadow-md w-full max-w-sm"
+      >
+        <section id="auth" class="text-center">
+          <h1 class="text-2xl font-bold text-primary-500 mb-6">Auth</h1>
+          <div class="space-y-4">
+            <a
+              class="button common-btn w-full block bg-primary-500 text-text-50 font-bold py-3 rounded-lg hover:bg-primary-600 transition duration-300"
+              href="./login/"
+            >
+              Login
+            </a>
+            <p class="text-sm text-text-700">or</p>
+            <a
+              class="button common-btn w-full block bg-secondary-500 text-text-50 font-bold py-3 rounded-lg hover:bg-secondary-600 transition duration-300"
+              href="./register/"
+            >
+              Register
+            </a>
           </div>
         </section>
       </div>
-      <img src="/images/noroff-logo.png" alt="noroff logo" />
-      <p id="social-platform">Social platform for students</p>
+
+      <img src="/images/noroff-logo.png" alt="noroff logo" class="mt-8 w-24" />
+      <p id="social-platform" class="mt-4 text-sm text-text-700">
+        Social platform for students
+      </p>
     </main>
 
-    <footer>
-      <div>
-        <img src="/images/noroff-logo.png" alt="noroff logo" />
-        <ul>
-          <li><img src="/images/DevSquare.png" alt="Dev Square Logo" /></li>
+    <footer
+      class="bg-background text-text flex flex-col sm:flex-row justify-between items-center px-6 lg:px-20 py-6"
+    >
+      <div class="self-start sm:self-center">
+        <img
+          class="my-10 h-10 lg:h-20"
+          src="/images/noroff-logo.png"
+          alt="noroff logo"
+        />
+      </div>
+      <div class="text-right">
+        <ul class="text-left">
+          <li>
+            <img
+              class="my-10 h-10 lg:h-20"
+              src="/images/DevSquare.png"
+              alt="Dev Square Logo"
+            />
+          </li>
           <li>Group project</li>
           <li>Created by Taner, Senbet and Tom Andre</li>
         </ul>

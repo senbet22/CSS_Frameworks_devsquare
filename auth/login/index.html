@@ -6,39 +6,96 @@
     <title>DevSquare - Login</title>
     <link rel="icon" href="/images/DS.png" />
     <script type="module" src="/src/app.js"></script>
+    <link rel="stylesheet" href="/src/css/input.css" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
   </head>
 
   <body>
-    <main class="form-use">
-      <div class="max-small-container">
-        <h1>Login</h1>
-        <form name="login" novalidate>
+    <main
+      class="form-use flex flex-col items-center justify-center min-h-screen bg-background-50 text-text-900 px-6"
+    >
+      <div
+        class="max-small-container bg-background-100 border border-background-300 rounded-lg p-8 shadow-md w-full max-w-sm"
+      >
+        <h1 class="text-2xl font-bold text-primary-500 mb-6">Login</h1>
+        <form name="login" novalidate class="space-y-6">
           <div>
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" required />
+            <label
+              for="email"
+              class="block text-text-700 text-sm font-medium mb-2"
+              >Email</label
+            >
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              class="w-full p-3 border border-background-300 rounded-lg bg-background-50 text-text-900 focus:ring-2 focus:ring-primary-200 focus:outline-none"
+            />
           </div>
 
           <div>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required />
+            <label
+              for="password"
+              class="block text-text-700 text-sm font-medium mb-2"
+              >Password</label
+            >
+            <input
+              type="password"
+              name="password"
+              id="password"
+              required
+              class="w-full p-3 border border-background-300 rounded-lg bg-background-50 text-text-900 focus:ring-2 focus:ring-primary-200 focus:outline-none"
+            />
           </div>
 
-          <button class="common-btn" type="submit">Login</button>
-          <div class="error-container">
+          <button
+            type="submit"
+            class="common-btn w-full bg-primary-500 text-text-50 font-bold py-3 rounded-lg hover:bg-primary-600 transition duration-300"
+          >
+            Login
+          </button>
+
+          <div class="error-container text-center text-accent-500 mt-4">
             <span class="error-message"></span>
           </div>
         </form>
-        <p>Don't have an account? <a href="/auth/register/">Register here</a></p>
+
+        <p class="mt-6 text-sm text-center">
+          Don't have an account?
+          <a
+            href="/auth/register/"
+            class="text-secondary-500 font-semibold hover:underline"
+            >Register here</a
+          >
+        </p>
       </div>
-      <img src="/images/noroff-logo.png" alt="noroff logo" />
-      <p id="social-platform">Social platform for students</p>
+
+      <img src="/images/noroff-logo.png" alt="noroff logo" class="mt-8 w-24" />
+      <p id="social-platform" class="mt-4 text-sm text-text-700">
+        Social platform for students
+      </p>
     </main>
 
-    <footer>
-      <div>
-        <img src="/images/noroff-logo.png" alt="noroff logo" />
-        <ul>
-          <li><img src="/images/DevSquare.png" alt="Dev Square Logo" /></li>
+    <footer
+      class="bg-background text-text flex flex-col sm:flex-row justify-between items-center px-6 lg:px-20 py-6"
+    >
+      <div class="self-start sm:self-center">
+        <img
+          class="my-10 h-10 lg:h-20"
+          src="/images/noroff-logo.png"
+          alt="noroff logo"
+        />
+      </div>
+      <div class="text-right">
+        <ul class="text-left">
+          <li>
+            <img
+              class="my-10 h-10 lg:h-20"
+              src="/images/DevSquare.png"
+              alt="Dev Square Logo"
+            />
+          </li>
           <li>Group project</li>
           <li>Created by Taner, Senbet and Tom Andre</li>
         </ul>

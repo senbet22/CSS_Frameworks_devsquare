@@ -1,6 +1,6 @@
 // Icons
-const sunIcon = document.querySelector(".sun");
-const moonIcon = document.querySelector(".moon");
+const sunIcons = document.querySelectorAll(".sun");
+const moonIcons = document.querySelectorAll(".moon");
 
 // Theme Vars
 const userTheme = localStorage.getItem("theme");
@@ -8,21 +8,21 @@ const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 // Icon Toggling
 const iconToggle = () => {
-  moonIcon.classList.toggle("display-none");
-  sunIcon.classList.toggle("display-none");
+  moonIcons.forEach((icon) => icon.classList.toggle("display-none"));
+  sunIcons.forEach((icon) => icon.classList.toggle("display-none"));
 };
 
 // Initial Theme Check
 const themeCheck = () => {
   if (userTheme === "dark" || (!userTheme && systemTheme)) {
     document.documentElement.classList.add("dark");
-    moonIcon.classList.add("display-none");
+    moonIcons.forEach((icon) => icon.classList.add("display-none"));
     return;
   }
-  sunIcon.classList.add("display-none");
+  sunIcons.forEach((icon) => icon.classList.add("display-none"));
 };
 
-// ;anual Theme Switch
+// Manual Theme Switch
 const ThemeSwitch = () => {
   if (document.documentElement.classList.contains("dark")) {
     document.documentElement.classList.remove("dark");
@@ -35,13 +35,13 @@ const ThemeSwitch = () => {
   iconToggle();
 };
 
-// call theme switch on clicking buttons
-sunIcon.addEventListener("click", () => {
-  ThemeSwitch();
+// Add event listeners to all dark mode toggle buttons (desktop and mobile)
+sunIcons.forEach((icon) => {
+  icon.addEventListener("click", ThemeSwitch);
 });
 
-moonIcon.addEventListener("click", () => {
-  ThemeSwitch();
+moonIcons.forEach((icon) => {
+  icon.addEventListener("click", ThemeSwitch);
 });
 
 // Invoke theme check on initial load

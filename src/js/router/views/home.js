@@ -1,4 +1,9 @@
-import { goToPage, initializeHome, nextPage, prevPage } from "../../ui/component/homeInitAndPaginator";
+import {
+  goToPage,
+  initializeHome,
+  nextPage,
+  prevPage,
+} from "../../ui/component/homeInitAndPaginator";
 import { setLogoutListener } from "../../ui/global/logout";
 import { authGuard } from "../../utilities/authGuard";
 import { goToProfilePage } from "../../ui/global/goMyProfile";

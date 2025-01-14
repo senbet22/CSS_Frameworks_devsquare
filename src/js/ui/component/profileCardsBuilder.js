@@ -7,12 +7,18 @@
  * @param {string} container - ID of the container to append elements to ("followers" or "following").
  */
 export async function createProfileLink(profiles, emptyMessage, container) {
-  const targetContainer = document.getElementById(container === "followers" ? "followers-list" : "following-list");
+  const targetContainer = document.getElementById(
+    container === "followers" ? "followers-list" : "following-list"
+  );
 
   targetContainer.innerHTML = "";
 
   if (!targetContainer) {
-    console.error(`Container with ID "${container === "followers" ? "followers-list" : "following-list"}" not found.`);
+    console.error(
+      `Container with ID "${
+        container === "followers" ? "followers-list" : "following-list"
+      }" not found.`
+    );
     return;
   }
 

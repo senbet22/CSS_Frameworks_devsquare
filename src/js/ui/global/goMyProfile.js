@@ -1,14 +1,27 @@
 /**
- * Takes the logged user to his/her own profile page using localStorage
- * @import goToProfilePage() : at any place header is accessible
- * @method / always make sure in header there is an <a> element with the id "goProfileBtn"
- *
+ * Navigates the logged user to their own profile page using localStorage.
+ * Ensures the event listener is attached to both desktop and mobile buttons.
  */
 export function goToProfilePage() {
   const user = JSON.parse(localStorage.getItem("adminUser"));
 
-  const goToProfileBtn = document.getElementById("go-profile-btn");
-  goToProfileBtn.addEventListener("click", () => {
-    goToProfileBtn.href = `/profile/?profile=${user.name}`;
-  });
+  const desktopProfileBtn = document.getElementById("go-profile-btn");
+  const mobileNavbar = document.getElementById("navbar-hamburger");
+  const mobileProfileBtn = mobileNavbar.querySelector('[href="/profile/"]');
+
+  // Attach to desktop button
+  if (desktopProfileBtn) {
+    desktopProfileBtn.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default navigation
+      window.location.href = `/profile/?profile=${user.name}`;
+    });
+  }
+
+  // Attach to mobile button
+  if (mobileProfileBtn) {
+    mobileProfileBtn.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default navigation
+      window.location.href = `/profile/?profile=${user.name}`;
+    });
+  }
 }
