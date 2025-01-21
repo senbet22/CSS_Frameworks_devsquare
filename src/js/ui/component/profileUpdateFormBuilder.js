@@ -12,13 +12,22 @@
 export function createUpdateProfileForm() {
   const section = document.createElement("section");
   section.id = "update-profile";
+  section.className =
+    "flex flex-col items-center justify-center min-h-screen bg-background-50 text-text-900 px-6";
+
+  const container = document.createElement("div");
+  container.className =
+    "max-small-container bg-secondary-50 border border-background-300 rounded-lg p-8 shadow-md w-full max-w-5xl";
+  section.appendChild(container);
 
   const h4 = document.createElement("h4");
-  h4.textContent = "Update profile";
-  section.appendChild(h4);
+  h4.textContent = "Update Profile";
+  h4.className = "text-2xl font-bold text-secondary-500 mb-6";
+  container.appendChild(h4);
 
   const form = document.createElement("form");
   form.name = "updateProfile";
+  form.className = "space-y-6";
 
   const hiddenDiv = document.createElement("div");
   const inputUsername = document.createElement("input");
@@ -29,85 +38,100 @@ export function createUpdateProfileForm() {
   hiddenDiv.appendChild(inputUsername);
   form.appendChild(hiddenDiv);
 
-  const bioDiv = document.createElement("div");
-  const labelBio = document.createElement("label");
-  labelBio.setAttribute("for", "bio");
-  labelBio.textContent = "Bio:";
-  const textarea = document.createElement("textarea");
-  textarea.name = "bio";
-  textarea.id = "bio";
-  textarea.rows = 4;
-  textarea.maxLength = 280;
-  textarea.placeholder = "Write your bio here...";
-  bioDiv.appendChild(labelBio);
-  bioDiv.appendChild(textarea);
-  form.appendChild(bioDiv);
+  const createInputGroup = (
+    labelText,
+    inputType,
+    inputName,
+    inputId,
+    placeholder,
+    maxLength = null
+  ) => {
+    const groupDiv = document.createElement("div");
 
-  const avatarSrcDiv = document.createElement("div");
-  const labelAvatarSrc = document.createElement("label");
-  labelAvatarSrc.setAttribute("for", "avatarSrc");
-  labelAvatarSrc.textContent = "Avatar Image Source (URL):";
-  const inputAvatarSrc = document.createElement("input");
-  inputAvatarSrc.type = "text";
-  inputAvatarSrc.name = "avatarSrc";
-  inputAvatarSrc.id = "avatarSrc";
-  inputAvatarSrc.placeholder = "Enter avatar image URL";
-  avatarSrcDiv.appendChild(labelAvatarSrc);
-  avatarSrcDiv.appendChild(inputAvatarSrc);
-  form.appendChild(avatarSrcDiv);
+    const label = document.createElement("label");
+    label.setAttribute("for", inputId);
+    label.textContent = labelText;
+    label.className = "block text-text-950 text-md font-medium mb-2";
+    groupDiv.appendChild(label);
 
-  const avatarAltDiv = document.createElement("div");
-  const labelAvatarAlt = document.createElement("label");
-  labelAvatarAlt.setAttribute("for", "avatarAlt");
-  labelAvatarAlt.textContent = "Avatar Image Alt Text:";
-  const inputAvatarAlt = document.createElement("input");
-  inputAvatarAlt.type = "text";
-  inputAvatarAlt.name = "avatarAlt";
-  inputAvatarAlt.id = "avatarAlt";
-  inputAvatarAlt.maxLength = 120;
-  inputAvatarAlt.placeholder = "Enter avatar alt text";
-  avatarAltDiv.appendChild(labelAvatarAlt);
-  avatarAltDiv.appendChild(inputAvatarAlt);
-  form.appendChild(avatarAltDiv);
+    const input = document.createElement(
+      inputType === "textarea" ? "textarea" : "input"
+    );
+    input.name = inputName;
+    input.id = inputId;
+    input.placeholder = placeholder;
+    input.className =
+      "w-full p-3 border border-background-300 rounded-lg bg-background-50 text-text-900 focus:ring-2 focus:ring-accent-200 focus:outline-none";
+    if (inputType !== "textarea") input.type = inputType;
+    if (maxLength) input.maxLength = maxLength;
+    if (inputType === "textarea") input.rows = 4;
 
-  const bannerSrcDiv = document.createElement("div");
-  const labelBannerSrc = document.createElement("label");
-  labelBannerSrc.setAttribute("for", "bannerSrc");
-  labelBannerSrc.textContent = "Banner Image Source (URL):";
-  const inputBannerSrc = document.createElement("input");
-  inputBannerSrc.type = "text";
-  inputBannerSrc.name = "bannerSrc";
-  inputBannerSrc.id = "bannerSrc";
-  inputBannerSrc.placeholder = "Enter banner image URL";
-  bannerSrcDiv.appendChild(labelBannerSrc);
-  bannerSrcDiv.appendChild(inputBannerSrc);
-  form.appendChild(bannerSrcDiv);
+    groupDiv.appendChild(input);
+    return groupDiv;
+  };
 
-  const bannerAltDiv = document.createElement("div");
-  const labelBannerAlt = document.createElement("label");
-  labelBannerAlt.setAttribute("for", "bannerAlt");
-  labelBannerAlt.textContent = "Banner Image Alt Text:";
-  const inputBannerAlt = document.createElement("input");
-  inputBannerAlt.type = "text";
-  inputBannerAlt.name = "bannerAlt";
-  inputBannerAlt.id = "bannerAlt";
-  inputBannerAlt.maxLength = 120;
-  inputBannerAlt.placeholder = "Enter banner alt text";
-  bannerAltDiv.appendChild(labelBannerAlt);
-  bannerAltDiv.appendChild(inputBannerAlt);
-  form.appendChild(bannerAltDiv);
+  form.appendChild(
+    createInputGroup(
+      "Bio:",
+      "textarea",
+      "bio",
+      "bio",
+      "Write your bio here...",
+      280
+    )
+  );
+  form.appendChild(
+    createInputGroup(
+      "Avatar Image Source (URL):",
+      "text",
+      "avatarSrc",
+      "avatarSrc",
+      "Enter avatar image URL"
+    )
+  );
+  form.appendChild(
+    createInputGroup(
+      "Avatar Image Alt Text:",
+      "text",
+      "avatarAlt",
+      "avatarAlt",
+      "Enter avatar alt text",
+      120
+    )
+  );
+  form.appendChild(
+    createInputGroup(
+      "Banner Image Source (URL):",
+      "text",
+      "bannerSrc",
+      "bannerSrc",
+      "Enter banner image URL"
+    )
+  );
+  form.appendChild(
+    createInputGroup(
+      "Banner Image Alt Text:",
+      "text",
+      "bannerAlt",
+      "bannerAlt",
+      "Enter banner alt text",
+      120
+    )
+  );
 
   const submitButton = document.createElement("button");
-  submitButton.classList.add("common-btn");
+  submitButton.className =
+    "common-btn w-full bg-primary-500 text-text-950 font-bold py-3 rounded-lg hover:bg-primary-600 transition duration-300";
   submitButton.type = "submit";
   submitButton.textContent = "Submit";
 
   form.appendChild(submitButton);
-  section.appendChild(form);
+  container.appendChild(form);
 
   const errorMsgDiv = document.createElement("div");
   errorMsgDiv.id = "error-update-msg";
-  section.appendChild(errorMsgDiv);
+  errorMsgDiv.className = "error-container text-center text-accent-500 mt-4";
+  container.appendChild(errorMsgDiv);
 
   return section;
 }

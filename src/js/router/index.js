@@ -25,6 +25,8 @@ export default async function router(pathname = window.location.pathname) {
       break;
     case "/post/create/":
       await import("./views/postCreate.js");
+      await import("../ui/component/darkMode.js");
+      await import("../ui/component/navbar.js");
       break;
     case "/profile/":
       await import("../ui/component/darkMode.js");

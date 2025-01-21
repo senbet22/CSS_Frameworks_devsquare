@@ -6,6 +6,7 @@ module.exports = {
     "./src/css/**/*.css",
     "./auth/**/*.html",
     "./profile/**/*.html",
+    "./post/**/*.html",
   ],
   theme: {
     extend: {

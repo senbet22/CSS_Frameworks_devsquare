@@ -23,26 +23,18 @@ export async function createProfileLink(profiles, emptyMessage, container) {
   }
 
   if (profiles.length === 0) {
-    const message = document.createElement("p");
-    message.textContent = emptyMessage;
-    targetContainer.appendChild(message);
+    targetContainer.innerHTML = `<p class=\"text-gray-500 text-center mt-4\">${emptyMessage}</p>`;
+    return;
   }
 
   profiles.forEach((profile) => {
-    const link = document.createElement("a");
-    link.classList.add("user-profile");
-    link.href = `/profile/?profile=${profile.name}`;
+    const linkTemplate = `
+      <a href=\"/profile/?profile=${profile.name}\" class=\"user-profile flex items-center space-x-4  my-4 border rounded\">
+        <img src=\"${profile.avatar.url}\" alt=\"${profile.name}\" class=\"w-8 h-8 rounded-full\" />
+        <p class=\"text-lg text-gray-700\">${profile.name}</p>
+      </a>
+    `;
 
-    const img = document.createElement("img");
-    img.src = profile.avatar.url;
-    img.alt = profile.name;
-
-    const paragraph = document.createElement("p");
-    paragraph.textContent = profile.name;
-
-    link.appendChild(img);
-    link.appendChild(paragraph);
-
-    targetContainer.appendChild(link);
+    targetContainer.insertAdjacentHTML("beforeend", linkTemplate);
   });
 }
