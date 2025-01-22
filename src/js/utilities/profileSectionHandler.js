@@ -12,7 +12,7 @@
  */
 
 export function handleSectionDisplay(user) {
-  const usersPostTitle = document.getElementById("user-posts");
+  const usersPostTitle = document.getElementById("visit-section");
   usersPostTitle.textContent = `View ${user}'s posts:`;
 
   const radioButtons = document.querySelectorAll('input[name="section"]');
@@ -38,7 +38,9 @@ export function handleSectionDisplay(user) {
 
   const savedRadio = sessionStorage.getItem("selectedRadio");
   if (savedRadio) {
-    const matchingRadio = document.querySelector(`input[name="section"][value="${savedRadio}"]`);
+    const matchingRadio = document.querySelector(
+      `input[name="section"][value="${savedRadio}"]`
+    );
     if (matchingRadio) matchingRadio.checked = true;
   } else {
     radioButtons[0].checked = true;

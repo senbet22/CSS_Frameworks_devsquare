@@ -64,7 +64,7 @@
           </svg>
         </div>        
       </div>
-      
+
       <!-- Mobile - Navbar -->
       <div
         id="navbar-hamburger"
@@ -132,7 +132,7 @@
         <a
           href="#update-profile"
           id="anchor-edit"
-          class="hidden mt-2 px-4 py-2 text-sm text-text-950 font-medium bg-primary-500 rounded hover:bg-primary-600"
+          class="hidden mt-2 px-4 py-2 text-sm text-text-950 font-medium bg-secondary-200 rounded hover:bg-secondary-400"
         >
           Edit Profile
         </a>
@@ -158,8 +158,8 @@
         <span id="follow-msg"></span>
       </div>
 
-      <div class="content-sections ">
-        <div class="radio-buttons flex justify-center gap-4 mb-6">
+      <div class="content-sections">
+        <div class="radio-buttons flex justify-center gap-4 max-w-3xl mx-auto bg-secondary-50 p-6">
           <input
             type="radio"
             name="section"
@@ -170,7 +170,7 @@
           />
           <label
             for="follow-section"
-            class="common-btn bg-accent-300 text-text-950 font-bold py-3 px-6 rounded-lg hover:bg-accent-500 transition duration-300 cursor-pointer peer-checked:bg-accent-500"
+            class="common-btn bg-accent-300 text-text-950 font-bold py-3 px-6 w-full rounded-lg hover:bg-accent-500 transition duration-300 cursor-pointer peer-checked:bg-accent-500"
           >
             Follow List
           </label>
@@ -178,13 +178,13 @@
           <input
             type="radio"
             name="section"
-            id="user-posts"
-            value="user-posts"
+            id="visit-section"
+            value="visit-section"
             class="hidden peer"
           />
           <label
-            for="user-posts"
-            class="common-btn bg-secondary-200 text-text-950 font-bold py-3 px-6 rounded-lg hover:bg-secondary-600 transition duration-300 cursor-pointer peer-checked:bg-secondary-300"
+            for="visit-section"
+            class="common-btn bg-accent-300 text-text-950 font-bold py-3 px-6 w-full rounded-lg hover:bg-secondary-600 transition duration-300 cursor-pointer peer-checked:bg-accent-500"
           >
             Posts
           </label>
@@ -192,7 +192,7 @@
       </div>
       
 
-        <section id="follow-section" class="content-section max-w-3xl mx-auto bg-secondary-50 border border-light-grey p-6 rounded-lg ">
+        <section id="follow-section" class="content-section max-w-3xl mx-auto bg-secondary-50 border border-light-grey p-6">
           <div class="flex flex-wrap justify-center gap-8">
             <article class="p-6">
               <h3 class="text-xl font-bold">Followed by</h3>
@@ -207,7 +207,7 @@
           </div>
         </section>
 
-        <section id="visit-section" class="hidden content-section">
+        <section id="visit-section" class="hidden content-section max-w-3xl mx-auto bg-secondary-50 border border-light-grey p-6">
           <div id="profile-user-posts"></div>
         </section>
       </div>

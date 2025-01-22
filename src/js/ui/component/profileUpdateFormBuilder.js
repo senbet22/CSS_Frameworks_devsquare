@@ -121,7 +121,7 @@ export function createUpdateProfileForm() {
 
   const submitButton = document.createElement("button");
   submitButton.className =
-    "common-btn w-full bg-primary-500 text-text-950 font-bold py-3 rounded-lg hover:bg-primary-600 transition duration-300";
+    "common-btn w-full bg-secondary-300 text-text-950 font-bold py-3 rounded-lg hover:bg-primary-600 transition duration-300";
   submitButton.type = "submit";
   submitButton.textContent = "Submit";
 

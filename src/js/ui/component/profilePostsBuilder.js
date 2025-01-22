@@ -17,39 +17,58 @@ export function displayPostsListStyle(posts, name) {
 
   if (!posts || posts.length === 0) {
     postContainer.textContent = `${name} has not created any posts yet.`;
+    return;
   }
 
   posts.forEach((post) => {
     const postElement = document.createElement("div");
-    postElement.classList.add("post");
+    postElement.classList.add(
+      "bg-background-100",
+      "flex",
+      "justify-between",
+      "items-center",
+      "p-4",
+      "rounded-lg",
+      "border-b",
+      "border-gray-300"
+    );
 
     const postTitle = document.createElement("p");
     postTitle.textContent = post.title;
+    postTitle.classList.add(
+      "text-text-950",
+      "font-medium",
+      "text-lg",
+      "truncate"
+    );
 
     const postBtnWrapper = document.createElement("div");
-    postBtnWrapper.classList.add("post-btn-wrapper");
+    postBtnWrapper.classList.add("flex", "gap-4");
 
     const goToPost = document.createElement("a");
-    goToPost.classList.add("view-post");
+    goToPost.classList.add("text-blue-500", "hover:text-blue-700", "text-lg");
     goToPost.textContent = "👁️";
     goToPost.href = `/post/?post=${post.id}`;
     postBtnWrapper.appendChild(goToPost);
 
     const userToCompare = compareUsers(post.owner);
-
     if (userToCompare === true) {
+      const editBtn = document.createElement("a");
+      editBtn.classList.add(
+        "text-green-500",
+        "hover:text-green-700",
+        "text-lg"
+      );
       const pencil = document.createElement("i");
       pencil.className = "fas fa-pencil";
-
-      const editBtn = document.createElement("a");
-      editBtn.classList.add("edit-post");
-      editBtn.href = `/post/edit/?post=${post.id}`;
       editBtn.appendChild(pencil);
+      editBtn.href = `/post/edit/?post=${post.id}`;
       postBtnWrapper.appendChild(editBtn);
     }
 
     postElement.appendChild(postTitle);
     postElement.appendChild(postBtnWrapper);
+
     postContainer.appendChild(postElement);
   });
 }
