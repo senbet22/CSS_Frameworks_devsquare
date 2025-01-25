@@ -9,8 +9,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/src/css/input.css" />
-    <link rel="stylesheet" href="/src/css/styles.css" />
     <script type="module" src="/src/app.js"></script>
   </head>
   <body class="bg-background-50">
@@ -54,22 +52,27 @@
             />
           </button>
         </nav>
-        <div class="sm:hidden block ml-auto text-text-50">
-          <img
+        <div class="sm:hidden block ml-auto fill-current text-text-950">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
             class="cursor-pointer w-8"
             id="nav-toggle"
-            src="/images/nav-menu.svg"
-            alt=""
-          />
+          >
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
         </div>
       </div>
+
       <!-- Mobile - Navbar -->
       <div
         id="navbar-hamburger"
         class="hidden w-full sm:hidden text-text-50 z-50 absolute bg-secondary-50"
       >
         <ul
-          class="flex flex-col font-medium rounded-lg text-secondary-500 hover:text-accent-900 bg-primary-100"
+          class="flex flex-col font-medium rounded-lg text-accent-900 bg-primary-100"
         >
           <li>
             <a

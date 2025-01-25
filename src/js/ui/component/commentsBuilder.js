@@ -27,27 +27,34 @@ export async function createComment(comments) {
 
     const commentWrapper = document.createElement("div");
     commentWrapper.classList.add("comment-wrapper");
+    commentWrapper.className =
+      "bg-background-50 flex flex-col max-w-5xl shadow-md";
 
     const profileCommenter = document.createElement("div");
     profileCommenter.classList.add("profile-commenter");
+    profileCommenter.className = "m-4";
 
     const img = document.createElement("img");
     img.src = author.avatar.url;
     img.alt = `${author.name}'s profile picture`;
+    img.className = "h-16 w-16 rounded shadow-md";
 
     const nameParagraph = document.createElement("p");
     nameParagraph.textContent = author.name;
+    nameParagraph.className = "font-medium text-lg";
 
     const timeAgo = timeSinceCreated(comment.created);
     const timeCreated = document.createElement("p");
     timeCreated.id = "time";
     timeCreated.textContent = timeAgo;
+    timeCreated.className = "ml-auto m-4";
 
     profileCommenter.appendChild(img);
     profileCommenter.appendChild(nameParagraph);
 
     const commentParagraph = document.createElement("p");
     commentParagraph.classList.add("comment");
+    commentParagraph.className = "ml-4";
     commentParagraph.innerHTML = body.replace(/\n/g, "<br>");
 
     commentWrapper.appendChild(profileCommenter);

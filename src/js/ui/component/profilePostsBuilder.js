@@ -29,8 +29,7 @@ export function displayPostsListStyle(posts, name) {
       "items-center",
       "p-4",
       "rounded-lg",
-      "border-b",
-      "border-gray-300"
+      "shadow-md"
     );
 
     const postTitle = document.createElement("p");
@@ -46,7 +45,13 @@ export function displayPostsListStyle(posts, name) {
     postBtnWrapper.classList.add("flex", "gap-4");
 
     const goToPost = document.createElement("a");
-    goToPost.classList.add("text-blue-500", "hover:text-blue-700", "text-lg");
+    goToPost.classList.add(
+      "bg-secondary-200",
+      "rounded-lg",
+      "hover:bg-secondary-400",
+      "text-lg",
+      "px-3"
+    );
     goToPost.textContent = "👁️";
     goToPost.href = `/post/?post=${post.id}`;
     postBtnWrapper.appendChild(goToPost);
@@ -54,16 +59,18 @@ export function displayPostsListStyle(posts, name) {
     const userToCompare = compareUsers(post.owner);
     if (userToCompare === true) {
       const editBtn = document.createElement("a");
-      editBtn.classList.add(
-        "text-green-500",
-        "hover:text-green-700",
-        "text-lg"
-      );
       const pencil = document.createElement("i");
       pencil.className = "fas fa-pencil";
       editBtn.appendChild(pencil);
       editBtn.href = `/post/edit/?post=${post.id}`;
       postBtnWrapper.appendChild(editBtn);
+      pencil.classList.add(
+        "bg-secondary-200",
+        "rounded-lg",
+        "hover:bg-secondary-400",
+        "text-lg",
+        "px-3"
+      );
     }
 
     postElement.appendChild(postTitle);

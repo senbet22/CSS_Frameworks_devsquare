@@ -20,7 +20,7 @@ export function renderPosts(posts, pageCount) {
   posts.forEach((post) => {
     const postElement = document.createElement("a");
     postElement.className =
-      "post-article bg-background-200 shadow-md mx-5 my-6 px-6";
+      "post-article bg-background-200  w-full mx-auto shadow-md my-6 px-6";
     postElement.href = `/post/?post=${post.id}`;
 
     const imgSrc = post.media && post.media.url ? post.media.url : "";
@@ -40,15 +40,15 @@ export function renderPosts(posts, pageCount) {
                     <img class="avatar w-10 h-10 rounded" 
                     src="${post.author.avatar.url}" 
                     alt="${post.author.avatar.alt}">
-                    <p class="font-bold">${post.author.name}</p>
+                    <p class="font-bold text-lg">${post.author.name}</p>
                 </div>
                 <p class="" id="comments-length"><span>💬</span><b>${
                   post.comments.length
                 }</b></p>                
             </div>
             <div class="post-info mt-4 flex justify-between">
-                <p>${post.created.slice(0, 10)}</p>
-                <p class="time-stamp">${timeAgo}</p>
+                <p class="text-lg font-medium">${post.created.slice(0, 10)}</p>
+                <p class="time-stamp mb-5 text-lg font-normal">${timeAgo}</p>
             </div>
             
         `;

@@ -3,44 +3,175 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevSquare - Noroff FED2 JS2 CA</title>
+    <title id="headTitle">DevSquare - A social student platform</title>
     <link rel="icon" href="/images/DS.png" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <header>
-      <div class="max-size-header">
+  <body class="bg-background-50">
+    <header class="w-full sticky top-0 left-0 shadow-md z-50 justify-between">
+      <div class="px-10 h-20 flex items-center bg-secondary-50">
         <a href="/">
-          <img src="/images/DevSquare.png" alt="Dev Square Logo" />
+          <img
+            class="h-8 sm md:h-10 z-50"
+            src="/images/DevSquare.png"
+            alt="Dev Square Logo"
+          />
         </a>
-        <nav>
-          <a class="deco-line" href="/">Home</a>
-          <a class="deco-line" id="go-profile-btn" href="/profile/"
+        <nav
+          class="max-w-5xl text-text-950 font-medium text-2xl hidden sm:flex justify-end gap-6 w-full"
+          id="navbar"
+        >
+          <a class="hover:text-secondary-400" href="/">Home</a>
+          <a
+            class="hover:text-secondary-400"
+            id="go-profile-btn"
+            href="/profile/"
             >My Profile</a
           >
-          <button type="button" id="logout-button">Logout</button>
+          <button
+            class="hover:text-secondary-400"
+            type="button"
+            id="logout-button"
+          >
+            Logout
+          </button>
+          <button class="" title="Toggle dark mode">
+            <img
+              class="moon cursor-pointer w-5"
+              src="/images/moon-solid.svg"
+              alt=""
+            />
+            <img
+              class="sun cursor-pointer w-5"
+              src="/images/sun-solid.svg"
+              alt=""
+            />
+          </button>
         </nav>
+        <div class="sm:hidden block ml-auto fill-current text-text-950">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            class="cursor-pointer w-8"
+            id="nav-toggle"
+          >
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Mobile - Navbar -->
+      <div
+        id="navbar-hamburger"
+        class="hidden w-full sm:hidden text-text-50 z-50 absolute bg-secondary-50"
+      >
+        <ul
+          class="flex flex-col font-medium rounded-lg text-accent-900 bg-primary-100"
+        >
+          <li>
+            <a
+              href="/"
+              class="block py-2 px-3 rounded hover:bg-secondary-300"
+              aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/profile/"
+              class="block py-2 px-3 rounded hover:bg-secondary-300"
+              >My Profile</a
+            >
+          </li>
+          <li>
+            <button
+              class="block py-2 px-3 rounded w-full text-left hover:bg-secondary-300"
+              type="button"
+              id="logout-button"
+            >
+              Logout
+            </button>
+          </li>
+          <li class="absolute right-4 top-2">
+            <button class="mobile-dark-mode-toggle" title="Toggle dark mode">
+              <img
+                class="moon cursor-pointer w-5"
+                src="/images/moon-solid.svg"
+                alt="Moon Icon"
+              />
+              <img
+                class="sun cursor-pointer w-5"
+                src="/images/sun-solid.svg"
+                alt="Sun Icon"
+              />
+            </button>
+          </li>
+        </ul>
       </div>
     </header>
 
-    <main class="regular-use">
-      <div id="post-container"></div>
+    <main class="regular-use max-w-5xl mx-auto text-text-950 bg-secondary-50">
+      <div id="post-container" class="bg-secondary-100"></div>
 
-      <section id="comment-section">
-        <form name="comment" id="commentBox">
-          <label for="comment">Comment here:</label>
-          <textarea name="commentBox" id="comment" maxlength="280"></textarea>
-          <button class="common-btn" type="submit">Comment</button>
+      <section
+        id="comment-section"
+        class="my-10 flex flex-col items-center justify-center max-w-5xl mx-auto"
+      >
+        <form
+          name="comment"
+          id="commentBox"
+          class="space-y-4 w-full max-w-5xl bg-background-50 border border-gray-300 p-6 rounded-lg shadow-md"
+        >
+          <label for="comment" class="block text-lg font-medium mb-2">
+            Comment here:
+          </label>
+          <textarea
+            name="commentBox"
+            id="comment"
+            maxlength="280"
+            class="w-full h-32 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-100 focus:outline-none"
+            placeholder="Write your comment here..."
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full py-2 px-4 bg-secondary-300 font-semibold rounded-lg hover:bg-secondary-400 focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2"
+          >
+            Comment
+          </button>
         </form>
-        <div id="comments-area"></div>
+        <div
+          id="comments-area"
+          class="w-full max-w-5xl mt-6 space-y-6 rounded"
+        ></div>
       </section>
     </main>
 
-    <footer>
-      <div>
-        <img src="/images/noroff-logo.png" alt="noroff logo" />
-        <ul>
-          <li><img src="/images/DevSquare.png" alt="Dev Square Logo" /></li>
+    <!-- Footer -->
+    <footer
+      class="bg-background opacity-50 border shadow-lg text-text flex flex-col sm:flex-row justify-between items-center px-6 lg:px-20 py-6"
+    >
+      <div class="self-start sm:self-center">
+        <img
+          class="my-10 h-10 lg:h-20"
+          src="/images/noroff-logo.png"
+          alt="noroff logo"
+        />
+      </div>
+      <div class="text-right">
+        <ul class="text-left">
+          <li>
+            <img
+              class="my-10 h-10 lg:h-20"
+              src="/images/DevSquare.png"
+              alt="Dev Square Logo"
+            />
+          </li>
           <li>Group project</li>
           <li>Created by Taner, Senbet and Tom Andre</li>
         </ul>

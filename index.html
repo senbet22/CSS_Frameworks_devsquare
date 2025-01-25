@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevSquare - A social student platform</title>
+    <title id="headTitle">DevSquare - A social student platform</title>
     <link rel="icon" href="/images/DS.png" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <script type="module" src="/src/app.js"></script>
-    <link rel="stylesheet" href="/src/css/input.css" />
-    <link rel="stylesheet" href="/src/css/styles.css" />
   </head>
-
-  <body class="bg-background-100">
+  <body class="bg-background-50">
     <header class="w-full sticky top-0 left-0 shadow-md z-50 justify-between">
       <div class="px-10 h-20 flex items-center bg-secondary-50">
         <a href="/">
@@ -24,12 +25,12 @@
           class="max-w-5xl text-text-950 font-medium text-2xl hidden sm:flex justify-end gap-6 w-full"
           id="navbar"
         >
-          <a class="hover:text-primary-50" href="/">Home</a>
-          <a class="hover:text-primary-50" id="go-profile-btn" href="/profile/"
+          <a class="hover:text-secondary-400" href="/">Home</a>
+          <a class="hover:text-secondary-400" id="go-profile-btn" href="/profile/"
             >My Profile</a
           >
           <button
-            class="hover:text-primary-50"
+            class="hover:text-secondary-400"
             type="button"
             id="logout-button"
           >
@@ -48,25 +49,30 @@
             />
           </button>
         </nav>
-        <div class="sm:hidden block ml-auto text-text-50">
-          <img
+        <div class="sm:hidden block ml-auto fill-current text-text-950">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
             class="cursor-pointer w-8"
             id="nav-toggle"
-            src="/images/nav-menu.svg"
-            alt=""
-          />
-        </div>
+          >
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </div>        
       </div>
+
       <!-- Mobile - Navbar -->
       <div
         id="navbar-hamburger"
         class="hidden w-full sm:hidden text-text-50 z-50 absolute bg-secondary-50"
       >
-        <ul class="flex flex-col font-medium rounded-lg bg-primary">
+        <ul class="flex flex-col font-medium rounded-lg text-accent-900 bg-primary-100">
           <li>
             <a
               href="/"
-              class="block py-2 px-3 text-gray-900 rounded hover:bg-background dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              class="block py-2 px-3 rounded   hover:bg-secondary-300"
               aria-current="page"
               >Home</a
             >
@@ -74,13 +80,13 @@
           <li>
             <a
               href="/profile/"
-              class="block py-2 px-3 text-gray-900 rounded hover:bg-background dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              class="block py-2 px-3 rounded   hover:bg-secondary-300"
               >My Profile</a
             >
           </li>
           <li>
             <button
-              class="block py-2 px-3 text-gray-900 rounded hover:bg-background dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              class="block py-2 px-3 rounded w-full text-left hover:bg-secondary-300"
               type="button"
               id="logout-button"
             >
@@ -126,15 +132,15 @@
         >
           <button
             type="button"
-            class="prev-posts flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-50 bg-accent-200 hover:bg-secondary-200 hover:shadow-md rounded"
+            class="prev-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 disabled:hover:bg-accent-200 disabled:hover:shadow-none  hover:shadow-md rounded"
           >
-            <span class="text-3xl">&#8249;</span>
+            <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]">&#8249;</span>
           </button>
           <button
             type="button"
-            class="next-posts flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-50 bg-accent-200 hover:bg-secondary-200 hover:shadow-md rounded"
+            class="next-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 hover:shadow-md rounded"
           >
-            <span class="text-3xl">&#8250;</span>
+            <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]">&#8250;</span>
           </button>
 
           <div class="flex text-xl">
@@ -151,47 +157,96 @@
         </div>
 
         <div
-          class="grid grid-cols-1 gap-6 auto-rows-auto max-w-96 md:max-w-none md:grid-cols-2 lg:grid-cols-3 text-text-950 px-8"
+          class="grid grid-cols-1 gap-6 auto-rows-auto max-w-96 md:max-w-none md:grid-cols-2 lg:grid-cols-3 text-text-950 sm:px-8"
           id="posts-container"
         >
-          <div class="filler-post"><div class="loader"></div></div>
-          <div class="filler-post"><div class="loader"></div></div>
-          <div class="filler-post"><div class="loader"></div></div>
-          <div class="filler-post"><div class="loader"></div></div>
-          <div class="filler-post"><div class="loader"></div></div>
-          <div class="filler-post"><div class="loader"></div></div>
-        </div>
+          <!-- Addd loader tailwind here!! -->
+          <div class="w-full bg-primary-200">
+            <p
+              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></p>
+            <h1
+              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></h1>
+            <div
+              class="w-full h-64 bg-gray-200 rounded-lg dark:bg-gray-600"
+            ></div>
 
-        <div
-          id="bottom-paginator"
-          class="flex items-center justify-center space-x-4 m-10 text-lg text-text-950"
-        >
-          <button
-            type="button"
-            class="prev-posts flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-50 bg-accent-200 hover:bg-secondary-200 hover:shadow-md rounded"
-          >
-            <span class="text-3xl">&#8249;</span>
-          </button>
-          <button
-            type="button"
-            class="next-posts flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-50 bg-accent-200 hover:bg-secondary-200 hover:shadow-md rounded"
-          >
-            <span class="text-3xl">&#8250;</span>
-          </button>
-
-          <div class="flex text-xl">
-            <label class="mx-2" for="post">Page</label>
-            <input
-              class="go-to flex items-center justify-center bg-secondary text-accent-400 text-center rounded mx-2 h-8 w-12 ms-0"
-              type="number"
-              id="post"
-              name="post"
-              min="1"
-            />
-            <p class="max-page">of</p>
+            <h1
+              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></h1>
+            <p
+              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></p>
           </div>
-        </div>
+
+          <div class="w-full bg-primary-200">
+            <p
+              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></p>
+            <h1
+              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></h1>
+            <div
+              class="w-full h-64 bg-gray-200 rounded-lg dark:bg-gray-600"
+            ></div>
+
+            <h1
+              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></h1>
+            <p
+              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></p>
+          </div>
+
+          <div class="w-full bg-primary-200">
+            <p
+              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></p>
+            <h1
+              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></h1>
+            <div
+              class="w-full h-64 bg-gray-200 rounded-lg dark:bg-gray-600"
+            ></div>
+
+            <h1
+              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></h1>
+            <p
+              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
+            ></p>
+          </div>
       </section>
+      <div
+      id="bottom-paginator"
+      class="flex items-center justify-center space-x-4 m-10 pb-10 text-lg text-text-950"
+    >
+      <button
+        type="button"
+        class="prev-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 disabled:hover:bg-accent-200 disabled:hover:shadow-none  hover:shadow-md rounded"
+      >
+        <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]">&#8249;</span>
+      </button>
+      <button
+        type="button"
+        class="next-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 hover:shadow-md rounded"
+      >
+        <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]">&#8250;</span>
+      </button>
+
+      <div class="flex text-xl">
+        <label class="mx-2" for="post">Page</label>
+        <input
+          class="go-to flex items-center justify-center bg-secondary text-accent-400 text-center rounded mx-2 h-8 w-12 ms-0"
+          type="number"
+          id="post"
+          name="post"
+          min="1"
+        />
+        <p class="max-page">of</p>
+      </div>
+    </div>
     </main>
 
     <!-- Footer -->

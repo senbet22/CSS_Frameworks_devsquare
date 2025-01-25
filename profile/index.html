@@ -9,8 +9,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/src/css/input.css" />
-    <link rel="stylesheet" href="/src/css/styles.css" />
     <script type="module" src="/src/app.js"></script>
   </head>
   <body class="bg-background-50">
@@ -70,7 +68,7 @@
         id="navbar-hamburger"
         class="hidden w-full sm:hidden text-text-50 z-50 absolute bg-secondary-50"
       >
-        <ul class="flex flex-col font-medium rounded-lg text-secondary-500 hover:text-accent-900 bg-primary-100">
+        <ul class="flex flex-col font-medium rounded-lg text-accent-900 bg-primary-100">
           <li>
             <a
               href="/"
@@ -132,7 +130,7 @@
         <a
           href="#update-profile"
           id="anchor-edit"
-          class="hidden mt-2 px-4 py-2 text-sm text-text-950 font-medium bg-secondary-200 rounded hover:bg-secondary-400"
+          class="hidden mt-2 px-4 py-2 text-sm text-text-950 font-bold bg-secondary-200 rounded hover:bg-secondary-400"
         >
           Edit Profile
         </a>
@@ -158,8 +156,8 @@
         <span id="follow-msg"></span>
       </div>
 
-      <div class="content-sections">
-        <div class="radio-buttons flex justify-center gap-4 max-w-3xl mx-auto bg-secondary-50 p-6">
+      <div class="content-sections sm:mx-5">
+        <div class="radio-buttons flex justify-center gap-4 max-w-5xl mx-auto bg-secondary-50 p-6">
           <input
             type="radio"
             name="section"
@@ -184,7 +182,7 @@
           />
           <label
             for="visit-section"
-            class="common-btn bg-accent-300 text-text-950 font-bold py-3 px-6 w-full rounded-lg hover:bg-secondary-600 transition duration-300 cursor-pointer peer-checked:bg-accent-500"
+            class="common-btn bg-accent-300 text-text-950 font-bold py-3 px-6 w-full rounded-lg hover:bg-accent-500 transition duration-300 cursor-pointer peer-checked:bg-accent-500"
           >
             Posts
           </label>
@@ -192,28 +190,28 @@
       </div>
       
 
-        <section id="follow-section" class="content-section max-w-3xl mx-auto bg-secondary-50 border border-light-grey p-6">
+        <section id="follow-section" class="content-section max-w-5xl sm:mx-5 bg-secondary-50 border border-light-grey p-6">
           <div class="flex flex-wrap justify-center gap-8">
             <article class="p-6">
               <h3 class="text-xl font-bold">Followed by</h3>
               <div class="flex-list">
-                <div id="followers-list" class="my-4 bg-background-100 overflow-y-auto min-w-72 max-h-72"></div>
+                <div id="followers-list" class="my-4 shadow-sm bg-background-100 overflow-y-auto min-w-72 max-h-72"></div>
               </div>
             </article>
             <article class=" p-6">
               <h3 class="text-xl font-bold">Follows</h3>
-              <div class="flex-list"><div id="following-list" class="my-4 bg-background-100 overflow-y-auto min-w-72 max-h-72"></div>
+              <div class="flex-list"><div id="following-list" class="my-4 shadow-sm bg-background-100 overflow-y-auto min-w-72 max-h-72"></div>
             </article>
           </div>
         </section>
 
-        <section id="visit-section" class="hidden content-section max-w-3xl mx-auto bg-secondary-50 border border-light-grey p-6">
+        <section id="visit-section" class="hidden content-section max-w-5xl sm:mx-5 mx-auto bg-secondary-50 border border-light-grey p-6">
           <div id="profile-user-posts"></div>
         </section>
       </div>
 
       <div id="start-new-post" class="hidden justify-center">
-        <a href="/post/create/" class="commmon-btn flex justify-center max-w-72 mx-auto bg-accent-500 my-10 text-text-950 font-bold py-3 px-6 rounded-lg hover:bg-accent-800 transition duration-300 cursor-pointer"
+        <a href="/post/create/" class="commmon-btn flex justify-center max-w-72 mx-auto bg-accent-300 my-10 text-text-950 font-bold py-3 px-6 rounded-lg hover:bg-accent-500 transition duration-300 cursor-pointer"
           >Start creating a new post now!</a
         >
       </div>

@@ -24,8 +24,9 @@ export async function onLogin(event) {
   } catch (error) {
     console.error("Login failed:", error);
     const errorContainer = document.querySelector(".error-container");
+    errorContainer.classList.remove("hidden");
+
     const errorMessage = document.querySelector(".error-message");
-    errorContainer.style.display = "block";
     errorMessage.textContent = error.message;
   }
 }

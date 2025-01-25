@@ -21,21 +21,27 @@ export function createPostContent(post) {
 
   const postSection = document.createElement("section");
   postSection.id = "post-content";
+  postSection.className = "shadow my-6 px-10";
 
   const titleElement = document.createElement("h1");
   titleElement.textContent = title;
+  titleElement.className = "text-2xl font-bold py-10";
 
   const postImg = document.createElement("img");
   postImg.src = media ? media.url : "";
   postImg.alt = media ? media.alt : "";
+  postImg.className = "w-full sm:w-1/2 min-h-52 mb-5";
 
   const bodyDiv = document.createElement("div");
   const bodyParagraph = document.createElement("p");
   bodyParagraph.textContent = body;
   bodyDiv.appendChild(bodyParagraph);
+  bodyDiv.className = "my-5 flex";
 
   const tagsElement = document.createElement("p");
-  tagsElement.innerHTML = `Tags: <b> ${tags.length > 0 ? tags.join(", ") : "No tags available"}</b>`;
+  tagsElement.innerHTML = `Tags: <b> ${
+    tags.length > 0 ? tags.join(", ") : "No tags available"
+  }</b>`;
 
   const createdElement = document.createElement("p");
   createdElement.innerHTML = `Date: <b> ${created.slice(0, 10)}</b>`;
@@ -52,15 +58,20 @@ export function createPostContent(post) {
 
   const authorSection = document.createElement("section");
   authorSection.id = "author-section";
+  authorSection.className =
+    "bg-background-50 flex items-center h-30 w-full max-w-5xl p-4 rounded-lg shadow";
 
   const authorLink = document.createElement("a");
   authorLink.classList.add("authorLink");
   authorLink.href = `/profile/?profile=${author.name}`;
+  authorLink.className =
+    "flex flex-col sm:flex-row w-fit items-center bg-secondary-200 hover:bg-secondary-300 py-4 pl-4 pr-10 text-lg font-medium rounded-lg space-x-2";
 
   const authorAvatar = document.createElement("img");
   authorAvatar.id = "profile-avatar";
   authorAvatar.src = author.avatar.url;
   authorAvatar.alt = `${author.name}'s avatar`;
+  authorAvatar.className = " h-10 w-10 sm:h-16 sm:w-16 rounded-lg";
 
   const authorNameElement = document.createElement("p");
   authorNameElement.id = "profile-name";
@@ -71,10 +82,14 @@ export function createPostContent(post) {
   if (author.name === localName.name) {
     const editorDiv = document.createElement("div");
     editorDiv.id = "editorOptions";
-    editorDiv.classList.add("hidden");
+    editorDiv.className =
+      "sm:w-full justify-end flex flex-col sm:flex-row space-x-4 mt-4";
+    // editorDiv.classList.add("hidden");
 
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete post";
+    deleteBtn.className =
+      "bg-accent-400  px-4 py-2 rounded-lg hover:bg-accent-700 transition text-sm font-small sm:text-lg sm:font-medium";
     deleteBtn.id = "delete-btn";
     deleteBtn.type = "button";
     deleteBtn.setAttribute("data-id", id);
@@ -86,6 +101,8 @@ export function createPostContent(post) {
     });
 
     const editBtn = document.createElement("a");
+    editBtn.className =
+      "bg-primary-400 mb-4 sm:mb-0 mx-4 px-4 py-2 rounded-lg hover:bg-primary-600 transition text-sm font-small sm:text-lg sm:font-medium";
     editBtn.classList.add("edit-btn");
     editBtn.href = `/post/edit/?post=${id}`;
     editBtn.textContent = "Edit post";

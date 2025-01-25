@@ -23,15 +23,15 @@ export async function createProfileLink(profiles, emptyMessage, container) {
   }
 
   if (profiles.length === 0) {
-    targetContainer.innerHTML = `<p class=\"text-gray-500 text-center mt-4\">${emptyMessage}</p>`;
+    targetContainer.innerHTML = `<p class=\"text-text-950 text-center mt-4\">${emptyMessage}</p>`;
     return;
   }
 
   profiles.forEach((profile) => {
     const linkTemplate = `
-      <a href=\"/profile/?profile=${profile.name}\" class=\"user-profile flex items-center space-x-4  my-4 border rounded\">
+      <a href=\"/profile/?profile=${profile.name}\" class=\"user-profile flex items-center space-x-4 p-3 mb-4\">
         <img src=\"${profile.avatar.url}\" alt=\"${profile.name}\" class=\"w-8 h-8 rounded-full\" />
-        <p class=\"text-lg text-gray-700\">${profile.name}</p>
+        <p class=\"text-lg\">${profile.name}</p>
       </a>
     `;
 

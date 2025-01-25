@@ -16,7 +16,7 @@ form.addEventListener("submit", onUpdatePost);
 const urlSearch = new URLSearchParams(window.location.search);
 const postId = urlSearch.get("post");
 
-const headTitle = document.getElementById("title-post");
+const headTitle = document.getElementById("headTitle");
 headTitle.textContent = `DevSquare - Editing post ${postId}`;
 
 initEditPost(postId);
@@ -31,7 +31,9 @@ async function initEditPost(id) {
     await populateEditForm(postData);
   } catch (error) {
     console.error("Error fetching post data:", error);
-    alert("This post no longer exists or an error occurred. Redirecting to the homepage.");
+    alert(
+      "This post no longer exists or an error occurred. Redirecting to the homepage."
+    );
     window.location.href = "/";
   }
 }

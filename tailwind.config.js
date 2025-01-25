@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./*.html",
     "./src/css/**/*.css",
+    "./src/js/**/*.js",
     "./auth/**/*.html",
     "./profile/**/*.html",
     "./post/**/*.html",

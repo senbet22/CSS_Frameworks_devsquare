@@ -13,11 +13,11 @@ export function createUpdateProfileForm() {
   const section = document.createElement("section");
   section.id = "update-profile";
   section.className =
-    "flex flex-col items-center justify-center min-h-screen bg-background-50 text-text-900 px-6";
+    "flex flex-col items-center justify-center min-h-screen bg-background-50 text-text-950 px-6";
 
   const container = document.createElement("div");
   container.className =
-    "max-small-container bg-secondary-50 border border-background-300 rounded-lg p-8 shadow-md w-full max-w-5xl";
+    "max-small-container bg-secondary-50 rounded-lg p-8 shadow-md w-full max-w-5xl";
   section.appendChild(container);
 
   const h4 = document.createElement("h4");
@@ -61,7 +61,7 @@ export function createUpdateProfileForm() {
     input.id = inputId;
     input.placeholder = placeholder;
     input.className =
-      "w-full p-3 border border-background-300 rounded-lg bg-background-50 text-text-900 focus:ring-2 focus:ring-accent-200 focus:outline-none";
+      "w-full p-3 border rounded-lg bg-background-50 text-text-900 focus:ring-2 focus:ring-accent-200 focus:outline-none";
     if (inputType !== "textarea") input.type = inputType;
     if (maxLength) input.maxLength = maxLength;
     if (inputType === "textarea") input.rows = 4;
@@ -121,7 +121,7 @@ export function createUpdateProfileForm() {
 
   const submitButton = document.createElement("button");
   submitButton.className =
-    "common-btn w-full bg-secondary-300 text-text-950 font-bold py-3 rounded-lg hover:bg-primary-600 transition duration-300";
+    "common-btn w-full bg-secondary-300 text-text-950 font-bold py-3 rounded-lg hover:bg-secondary-400 transition duration-300";
   submitButton.type = "submit";
   submitButton.textContent = "Submit";
 
