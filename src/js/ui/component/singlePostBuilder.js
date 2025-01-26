@@ -36,7 +36,7 @@ export function createPostContent(post) {
   const bodyParagraph = document.createElement("p");
   bodyParagraph.textContent = body;
   bodyDiv.appendChild(bodyParagraph);
-  bodyDiv.className = "my-5 flex";
+  bodyDiv.className = "my-5 text-lg flex";
 
   const tagsElement = document.createElement("p");
   tagsElement.innerHTML = `Tags: <b> ${
@@ -48,6 +48,10 @@ export function createPostContent(post) {
 
   const timeSinceElement = document.createElement("p");
   timeSinceElement.innerHTML = `Created since: <b>${timeSince} </b>`;
+
+  tagsElement.className = "mb-2 text-lg";
+  createdElement.className = "mb-2 text-lg";
+  timeSinceElement.className = "pb-5 text-lg";
 
   postSection.appendChild(titleElement);
   postSection.appendChild(postImg);

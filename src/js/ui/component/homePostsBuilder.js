@@ -20,7 +20,7 @@ export function renderPosts(posts, pageCount) {
   posts.forEach((post) => {
     const postElement = document.createElement("a");
     postElement.className =
-      "post-article bg-background-200  w-full mx-auto shadow-md my-6 px-6";
+      "post-article bg-background-200  w-full mx-auto shadow-md my-6 px-6 h-fit";
     postElement.href = `/post/?post=${post.id}`;
 
     const imgSrc = post.media && post.media.url ? post.media.url : "";
@@ -30,7 +30,7 @@ export function renderPosts(posts, pageCount) {
 
     postElement.innerHTML = `
             <h2 class="text-2xl break-words py-8"> ${post.title} </h2>   
-            <div class="temp-bg">
+            <div class="temp-bg min-h-72">
                 <img class="post-img rounded w-full max-h-64 object-contain" 
                 src="${imgSrc ? imgSrc : "/images/noroff-logo.png"}" 
                 alt="${imgSrc ? imgAlt : "noroff logo"}">

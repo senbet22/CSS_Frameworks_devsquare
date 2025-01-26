@@ -3,17 +3,19 @@ import { register } from "../../api/auth/register";
 export async function onRegister(event) {
   event.preventDefault();
 
+  // Reset error messages
   const errorContainer = document.querySelector(".error-container");
   const errorMessage = document.querySelector("#error-msg");
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const passwordError = document.getElementById("passwordError");
 
-  // Initially hide the error container and clear all error messages
   errorContainer.classList.add("hidden");
   errorMessage.textContent = "";
-  document.getElementById("nameError").textContent = "";
-  document.getElementById("emailError").textContent = "";
-  document.getElementById("passwordError").textContent = "";
+  nameError.classList.add("hidden");
+  emailError.classList.add("hidden");
+  passwordError.classList.add("hidden");
 
-  // Get form values
   const name = event.target.name.value.trim();
   const email = event.target.email.value.trim();
   const password = event.target.password.value.trim();
@@ -22,45 +24,53 @@ export async function onRegister(event) {
 
   // Validate the name field
   if (!name) {
-    document.getElementById("nameError").textContent = "Name is required!";
+    nameError.textContent = "Name is required!";
+    nameError.classList.remove("hidden");
     valid = false;
   } else if (!/^[\w]+$/.test(name)) {
-    document.getElementById("nameError").textContent =
+    nameError.textContent =
       "Invalid username. Only letters, numbers, and the underscore (_) are permitted.";
+    nameError.classList.remove("hidden");
     valid = false;
   }
 
   // Validate the email field
   if (!email) {
-    document.getElementById("emailError").textContent = "Email is required!";
+    emailError.textContent = "Email is required!";
+    emailError.classList.remove("hidden");
     valid = false;
   } else if (!/^[\w\-.]+@(stud\.)?noroff\.no$/.test(email)) {
-    document.getElementById("emailError").textContent =
+    emailError.textContent =
       "Please enter a valid email address (noroff.no or stud.noroff.no).";
+    emailError.classList.remove("hidden");
     valid = false;
   }
 
   // Validate the password field
   if (!password) {
-    document.getElementById("passwordError").textContent =
-      "Password is required!";
+    passwordError.textContent = "Password is required!";
+    passwordError.classList.remove("hidden");
     valid = false;
   } else if (password.length < 8) {
-    document.getElementById("passwordError").textContent =
-      "Password must be at least 8 characters long.";
+    passwordError.textContent = "Password must be at least 8 characters long.";
+    passwordError.classList.remove("hidden");
     valid = false;
   }
 
-  // If any validation fails, show the error container with a general message
+  // If any validation fails, stop submission
   if (!valid) {
     errorContainer.classList.remove("hidden");
     errorMessage.textContent = "Please fix the errors above and try again.";
     return;
   }
 
-  // If validation passes, proceed with API call
+  // If validation passes, call the API
   try {
-    const data = await register({ name, email, password });
+    const data = await register({
+      name,
+      email,
+      password,
+    });
 
     if (!data) {
       throw new Error(
