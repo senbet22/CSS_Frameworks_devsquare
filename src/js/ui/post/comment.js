@@ -7,7 +7,8 @@
  * @param {Event} event - The event object from the form submission.
  * @returns {Promise<void>} - Resolves when the function completes.
  */
-
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 import { commentPost } from "../../api/post/comment";
 
 export async function onCommentPost(event) {
@@ -16,7 +17,11 @@ export async function onCommentPost(event) {
   const comment = event.target.commentBox?.value.trim();
   if (!comment) {
     console.error("No comment provided.");
-    alert("Please enter a comment before posting.");
+
+    Toastify({
+      text: "Please enter a comment before posting.",
+      duration: 2000,
+    }).showToast();
     return;
   }
 
@@ -29,10 +34,16 @@ export async function onCommentPost(event) {
       location.reload();
     } else {
       console.warn("Comment was not posted.");
-      alert("Something went wrong. Comment was not posted. Try again!");
+      Toastify({
+        text: "Something went wrong. Comment was not posted. Try again!",
+        duration: 2000,
+      }).showToast();
     }
   } catch (error) {
     console.error("An error occurred while posting the comment:", error);
-    alert("Something went wrong. Please try again later.");
+    Toastify({
+      text: "Something went wrong. Please try again later.",
+      duration: 2000,
+    }).showToast();
   }
 }

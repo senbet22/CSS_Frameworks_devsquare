@@ -7,15 +7,19 @@
  */
 
 import { displayRestrictedCoverUp } from "../ui/component/restrictedAccess";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 export function authGuard() {
   if (!localStorage.token) {
     displayRestrictedCoverUp();
+    Toastify({
+      text: "Access restricted: You must be logged in to view this page.",
+      duration: 2000,
+    }).showToast();
+
     setTimeout(() => {
-      alert(
-        "Access restricted: You must be logged in to view this page. Registration is required if you don't already have an account."
-      );
       window.location.href = "/auth/";
-    }, 1200);
+    }, 2000);
   }
 }

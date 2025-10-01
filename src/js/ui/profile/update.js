@@ -11,6 +11,8 @@
  */
 
 import { updateProfile } from "../../api/profile/update";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 export async function onUpdateProfile(event) {
   event.preventDefault();
@@ -45,7 +47,11 @@ export async function onUpdateProfile(event) {
   }
 
   if (Object.keys(profileData).length === 0) {
-    alert("At least one field must be filled out.");
+    Toastify({
+      text: "At least one field must be filled out.",
+      duration: 2000,
+    }).showToast();
+
     return;
   }
 
@@ -57,13 +63,18 @@ export async function onUpdateProfile(event) {
         location.reload();
       }, 710);
     } else {
-      throw new Error("Couldn't update profile this time, try again in a couple minutes.");
+      throw new Error(
+        "Couldn't update profile this time, try again in a couple minutes."
+      );
     }
   } catch (error) {
     const errorUpdateMsg = document.getElementById("error-update-msg");
     errorUpdateMsg.innerHTML = `<p>${error.message}</p>`;
     console.error("Failed to update profile:", error);
-    alert("Failed to update profile. Please check the inputs are valid.");
+    Toastify({
+      text: "Failed to update profile. Please check the inputs are valid.",
+      duration: 2000,
+    }).showToast();
 
     setTimeout(() => {
       errorUpdateMsg.innerHTML = "";

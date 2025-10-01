@@ -1,8 +1,9 @@
 /**
  * Sends request to deletePost with parameter ID.
  */
-
 import { deletePost } from "../../api/post/delete";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 export function onDeletePost(event) {
   event.preventDefault();
@@ -14,10 +15,19 @@ export function onDeletePost(event) {
 
     if (deleteThisPost) {
       deletePost(postDataId);
-      window.location.href = "/";
-      alert("Post successfully deleted");
+      Toastify({
+        text: "Post successfully deleted! Redirecting...",
+        duration: 2000,
+      }).showToast();
+
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 2000);
     } else {
-      alert("Post deletion cancelled");
+      Toastify({
+        text: "Post deletion cancelled",
+        duration: 2000,
+      }).showToast();
       return;
     }
   }

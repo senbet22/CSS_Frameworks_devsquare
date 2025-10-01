@@ -5,6 +5,8 @@ import { setLogoutListener } from "../../ui/global/logout";
 import { goToProfilePage } from "../../ui/global/goMyProfile";
 import { onDeletePost } from "../../ui/post/delete";
 import { populateEditForm } from "../../ui/component/populateEditForm";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 authGuard();
 setLogoutListener();
@@ -31,10 +33,14 @@ async function initEditPost(id) {
     await populateEditForm(postData);
   } catch (error) {
     console.error("Error fetching post data:", error);
-    alert(
-      "This post no longer exists or an error occurred. Redirecting to the homepage."
-    );
-    window.location.href = "/";
+    Toastify({
+      text: "This post no longer exists or an error occurred. Redirecting......",
+      duration: 2000,
+    }).showToast();
+
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 2000);
   }
 }
 

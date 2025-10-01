@@ -26,7 +26,10 @@
           id="navbar"
         >
           <a class="hover:text-secondary-400" href="/">Home</a>
-          <a class="hover:text-secondary-400" id="go-profile-btn" href="/profile/"
+          <a
+            class="hover:text-secondary-400"
+            id="go-profile-btn"
+            href="/profile/"
             >My Profile</a
           >
           <button
@@ -60,7 +63,7 @@
               d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
             />
           </svg>
-        </div>        
+        </div>
       </div>
 
       <!-- Mobile - Navbar -->
@@ -68,11 +71,13 @@
         id="navbar-hamburger"
         class="hidden w-full sm:hidden text-text-50 z-50 absolute bg-secondary-50"
       >
-        <ul class="flex flex-col font-medium rounded-lg text-accent-900 bg-primary-100">
+        <ul
+          class="flex flex-col font-medium rounded-lg text-accent-900 bg-primary-100"
+        >
           <li>
             <a
               href="/"
-              class="block py-2 px-3 rounded   hover:bg-secondary-300"
+              class="block py-2 px-3 rounded hover:bg-secondary-300"
               aria-current="page"
               >Home</a
             >
@@ -80,7 +85,7 @@
           <li>
             <a
               href="/profile/"
-              class="block py-2 px-3 rounded   hover:bg-secondary-300"
+              class="block py-2 px-3 rounded hover:bg-secondary-300"
               >My Profile</a
             >
           </li>
@@ -132,15 +137,21 @@
         >
           <button
             type="button"
-            class="prev-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 disabled:hover:bg-accent-200 disabled:hover:shadow-none  hover:shadow-md rounded"
+            class="prev-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 disabled:hover:bg-accent-200 disabled:hover:shadow-none hover:shadow-md rounded"
           >
-            <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]">&#8249;</span>
+            <span
+              class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]"
+              >&#8249;</span
+            >
           </button>
           <button
             type="button"
             class="next-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 hover:shadow-md rounded"
           >
-            <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]">&#8250;</span>
+            <span
+              class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]"
+              >&#8250;</span
+            >
           </button>
 
           <div class="flex text-xl">
@@ -217,36 +228,41 @@
               class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
             ></p>
           </div>
+        </div>
       </section>
       <div
-      id="bottom-paginator"
-      class="flex items-center justify-center space-x-4 m-10 pb-10 text-lg text-text-950"
-    >
-      <button
-        type="button"
-        class="prev-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 disabled:hover:bg-accent-200 disabled:hover:shadow-none  hover:shadow-md rounded"
+        id="bottom-paginator"
+        class="flex items-center justify-center space-x-4 m-10 pb-10 text-lg text-text-950"
       >
-        <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]">&#8249;</span>
-      </button>
-      <button
-        type="button"
-        class="next-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 hover:shadow-md rounded"
-      >
-        <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]">&#8250;</span>
-      </button>
+        <button
+          type="button"
+          class="prev-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 disabled:hover:bg-accent-200 disabled:hover:shadow-none hover:shadow-md rounded"
+        >
+          <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]"
+            >&#8249;</span
+          >
+        </button>
+        <button
+          type="button"
+          class="next-posts relative flex items-center justify-center px-3 h-8 ms-0 leading-tight text-text-950 bg-accent-200 hover:bg-secondary-200 hover:shadow-md rounded"
+        >
+          <span class="text-5xl absolute left-1/2 -translate-x-1/2 bottom-[1px]"
+            >&#8250;</span
+          >
+        </button>
 
-      <div class="flex text-xl">
-        <label class="mx-2" for="post">Page</label>
-        <input
-          class="go-to flex items-center justify-center bg-secondary text-accent-400 text-center rounded mx-2 h-8 w-12 ms-0"
-          type="number"
-          id="post"
-          name="post"
-          min="1"
-        />
-        <p class="max-page">of</p>
+        <div class="flex text-xl">
+          <label class="mx-2" for="post">Page</label>
+          <input
+            class="go-to flex items-center justify-center bg-secondary text-accent-400 text-center rounded mx-2 h-8 w-12 ms-0"
+            type="number"
+            id="post"
+            name="post"
+            min="1"
+          />
+          <p class="max-page">of</p>
+        </div>
       </div>
-    </div>
     </main>
 
     <!-- Footer -->

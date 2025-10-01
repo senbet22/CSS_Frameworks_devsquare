@@ -3,6 +3,8 @@
  */
 
 import { updatePost } from "../../api/post/update";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 const errorContainer = document.querySelector(".error-container");
 
@@ -11,7 +13,9 @@ export async function onUpdatePost(event) {
   const id = event.target.id.value.trim();
   const title = event.target.title.value.trim();
   const body = event.target.body.value.trim();
-  const tags = event.target.tags.value ? event.target.tags.value.split(",").map((tag) => tag.trim()) : [];
+  const tags = event.target.tags.value
+    ? event.target.tags.value.split(",").map((tag) => tag.trim())
+    : [];
   const media = {
     url: event.target.mediaUrl.value.trim() || "",
     alt: event.target.mediaAlt.value.trim() || "",
@@ -44,10 +48,19 @@ export async function onUpdatePost(event) {
     }
 
     if (response.success === true) {
-      alert("Successfully updated post");
-      window.location.href = `/post/?post=${id}`;
+      Toastify({
+        text: "Successfully updated post!",
+        duration: 2000,
+      }).showToast();
+
+      setTimeout(() => {
+        window.location.href = `/post/?post=${id}`;
+      }, 2000);
     } else {
-      alert("Something went wrong, failed to update post.");
+      Toastify({
+        text: "Something went wrong, failed to update post.",
+        duration: 2000,
+      }).showToast();
     }
   } catch (error) {
     console.error("Error updating post:", error);

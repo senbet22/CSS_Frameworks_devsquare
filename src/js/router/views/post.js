@@ -6,6 +6,8 @@ import { onCommentPost } from "../../ui/post/comment";
 import { authGuard } from "../../utilities/authGuard";
 import { getMainComments } from "../../utilities/commentsSorter";
 import { goToProfilePage } from "../../ui/global/goMyProfile";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 authGuard();
 setLogoutListener();
@@ -30,8 +32,14 @@ async function initSinglePost(id) {
     await createComment(filteredMainComments);
   } catch (error) {
     console.error("Error initializing single post:", error);
-    alert("This post no longer exists or an error occurred. Redirecting to the homepage.");
-    window.location.href = "/";
+    Toastify({
+      text: "This post no longer exists or an error occurred. Redirecting......",
+      duration: 2000,
+    }).showToast();
+
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 2000);
   }
 }
 

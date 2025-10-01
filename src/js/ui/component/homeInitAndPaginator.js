@@ -24,9 +24,13 @@
 
 import { readPosts } from "../../api/post/read";
 import { renderPosts } from "./homePostsBuilder";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 const urlSearch = new URLSearchParams(window.location.search);
-let currentPage = urlSearch.get("page") ? parseInt(urlSearch.get("page"), 10) : 1;
+let currentPage = urlSearch.get("page")
+  ? parseInt(urlSearch.get("page"), 10)
+  : 1;
 
 if (isNaN(currentPage) || currentPage < 1) {
   currentPage = 1;
@@ -40,12 +44,20 @@ export async function initializeHome() {
     const { data, meta } = await readPosts(limit, currentPage);
 
     if (currentPage > meta.pageCount) {
-      alert("You have ventured too far. Taking you back to page 1.");
-      window.location.href = "/";
+      Toastify({
+        text: "You have ventured too far. Taking you back to page 1.",
+        duration: 2000,
+      }).showToast();
+
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 2000);
     }
 
     if (!data && !meta) {
-      throw new Error("Posts from API was not found. Try again some other time");
+      throw new Error(
+        "Posts from API was not found. Try again some other time"
+      );
     }
 
     metaData = meta;
