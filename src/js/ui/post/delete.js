@@ -1,34 +1,34 @@
 /**
  * Sends request to deletePost with parameter ID.
  */
+
 import { deletePost } from "../../api/post/delete";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 
 export function onDeletePost(event) {
   event.preventDefault();
-
   const postDataId = event.target.getAttribute("data-id");
+  if (!postDataId) return;
 
-  if (postDataId) {
-    const deleteThisPost = confirm("Wanna delete this post?");
+  const modal = document.getElementById("confirm-modal");
+  const yesBtn = document.getElementById("confirm-yes");
+  const noBtn = document.getElementById("confirm-no");
 
-    if (deleteThisPost) {
-      deletePost(postDataId);
-      Toastify({
-        text: "Post successfully deleted! Redirecting...",
-        duration: 2000,
-      }).showToast();
+  modal.classList.remove("hidden"); // show modal
 
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 2000);
-    } else {
-      Toastify({
-        text: "Post deletion cancelled",
-        duration: 2000,
-      }).showToast();
-      return;
-    }
-  }
+  yesBtn.onclick = async () => {
+    modal.classList.add("hidden"); // hide modal
+    await deletePost(postDataId);
+    Toastify({
+      text: "Post successfully deleted! Redirecting...",
+      duration: 2000,
+    }).showToast();
+    setTimeout(() => (window.location.href = "/"), 2000);
+  };
+
+  noBtn.onclick = () => {
+    modal.classList.add("hidden"); // hide modal
+    Toastify({ text: "Post deletion cancelled", duration: 2000 }).showToast();
+  };
 }

@@ -18,40 +18,76 @@ export function renderPosts(posts, pageCount) {
   postsContainer.innerHTML = "";
 
   posts.forEach((post) => {
-    const postElement = document.createElement("a");
-    postElement.className =
-      "post-article bg-background-200  w-full mx-auto shadow-md my-6 px-6 h-fit";
-    postElement.href = `/post/?post=${post.id}`;
-
-    const imgSrc = post.media && post.media.url ? post.media.url : "";
-    const imgAlt = post.media && post.media.alt ? post.media.alt : "";
-
     const timeAgo = timeSinceCreated(post.created);
+    const imgSrc = post.media?.url || "/images/noroff-logo.png";
+    const imgAlt = post.media?.alt || "Post image";
 
-    postElement.innerHTML = `
-            <h2 class="text-2xl break-words py-8"> ${post.title} </h2>   
-            <div class="temp-bg min-h-72">
-                <img class="post-img rounded w-full max-h-64 object-contain" 
-                src="${imgSrc ? imgSrc : "/images/noroff-logo.png"}" 
-                alt="${imgSrc ? imgAlt : "noroff logo"}">
-            </div>
-            <div class="intel-wrapper flex items-start justify-between space-x-4 mt-4">
-                <div class="profile-user py-2">
-                    <img class="avatar w-10 h-10 rounded" 
-                    src="${post.author.avatar.url}" 
-                    alt="${post.author.avatar.alt}">
-                    <p class="font-bold text-lg">${post.author.name}</p>
-                </div>
-                <p class="" id="comments-length"><span>💬</span><b>${
-                  post.comments.length
-                }</b></p>                
-            </div>
-            <div class="post-info mt-4 flex justify-between">
-                <p class="text-lg font-medium">${post.created.slice(0, 10)}</p>
-                <p class="time-stamp mb-5 text-lg font-normal">${timeAgo}</p>
-            </div>
-            
-        `;
+    const postElement = document.createElement("a");
+    postElement.href = `/post/?post=${post.id}`;
+    postElement.className = `
+      post-article flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden
+      w-full max-w-xl mx-auto my-6 cursor-pointer hover:shadow-xl transition
+    `;
+
+    // Image wrapper
+    const imgWrapper = document.createElement("div");
+    imgWrapper.className =
+      "w-full h-64 bg-gray-100 flex items-center justify-center overflow-hidden";
+    const img = document.createElement("img");
+    img.src = imgSrc;
+    img.alt = imgAlt;
+    img.className = "w-full h-full object-cover"; // fixed height, consistent card size
+    imgWrapper.appendChild(img);
+
+    // Content wrapper
+    const content = document.createElement("div");
+    content.className = "p-6 flex flex-col gap-4";
+
+    // Title
+    const titleEl = document.createElement("div");
+    titleEl.textContent = post.title;
+    titleEl.className = "text-xl font-bold line-clamp-2";
+    content.appendChild(titleEl);
+
+    // Author & comments
+    const infoDiv = document.createElement("div");
+    infoDiv.className = "flex justify-between items-center";
+
+    const authorDiv = document.createElement("div");
+    authorDiv.className = "flex items-center gap-3";
+    const avatar = document.createElement("img");
+    avatar.src = post.author.avatar.url;
+    avatar.alt = post.author.avatar.alt;
+    avatar.className = "w-10 h-10 rounded-full object-cover";
+    const authorName = document.createElement("p");
+    authorName.textContent = post.author.name;
+    authorName.className = "font-medium text-lg";
+    authorDiv.appendChild(avatar);
+    authorDiv.appendChild(authorName);
+
+    const comments = document.createElement("p");
+    comments.innerHTML = `💬 <b>${post.comments.length}</b>`;
+    comments.className = "text-lg font-medium";
+
+    infoDiv.appendChild(authorDiv);
+    infoDiv.appendChild(comments);
+
+    content.appendChild(infoDiv);
+
+    // Dates
+    const dateDiv = document.createElement("div");
+    dateDiv.className = "flex justify-between text-text-700 mt-2";
+    const createdDate = document.createElement("p");
+    createdDate.textContent = post.created.slice(0, 10);
+    const timeStamp = document.createElement("p");
+    timeStamp.textContent = timeAgo;
+    dateDiv.appendChild(createdDate);
+    dateDiv.appendChild(timeStamp);
+
+    content.appendChild(dateDiv);
+
+    postElement.appendChild(imgWrapper);
+    postElement.appendChild(content);
 
     postsContainer.appendChild(postElement);
   });

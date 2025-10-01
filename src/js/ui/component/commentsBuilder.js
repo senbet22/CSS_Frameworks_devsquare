@@ -28,7 +28,7 @@ export async function createComment(comments) {
     const commentWrapper = document.createElement("div");
     commentWrapper.classList.add("comment-wrapper");
     commentWrapper.className =
-      "bg-background-50 flex flex-col max-w-5xl shadow-md";
+      "bg-background-50 flex flex-col max-w-6xl shadow-md";
 
     const profileCommenter = document.createElement("div");
     profileCommenter.classList.add("profile-commenter");

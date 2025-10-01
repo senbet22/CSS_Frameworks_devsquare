@@ -17,7 +17,11 @@ export function createPostContent(post) {
 
   const timeSince = timeSinceCreated(created);
 
+  // Dynamic title
+  document.title = title;
+
   const postContainer = document.getElementById("post-container");
+  postContainer.innerHTML = "";
 
   const postSection = document.createElement("section");
   postSection.id = "post-content";
@@ -63,7 +67,7 @@ export function createPostContent(post) {
   const authorSection = document.createElement("section");
   authorSection.id = "author-section";
   authorSection.className =
-    "bg-background-50 flex items-center h-30 w-full max-w-5xl p-4 rounded-lg shadow";
+    "bg-background-50 flex items-center h-30 w-full max-w-6xl p-4 rounded-lg shadow";
 
   const authorLink = document.createElement("a");
   authorLink.classList.add("authorLink");
@@ -83,6 +87,7 @@ export function createPostContent(post) {
   authorSection.appendChild(authorLink);
 
   const localName = JSON.parse(localStorage.getItem("adminUser"));
+
   if (author.name === localName.name) {
     const editorDiv = document.createElement("div");
     editorDiv.id = "editorOptions";
@@ -97,6 +102,7 @@ export function createPostContent(post) {
     deleteBtn.id = "delete-btn";
     deleteBtn.type = "button";
     deleteBtn.setAttribute("data-id", id);
+
     deleteBtn.addEventListener("click", (event) => {
       const deletePost = confirm("Do you really want to delete this post?");
       if (!deletePost) return;

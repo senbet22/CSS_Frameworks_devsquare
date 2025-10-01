@@ -1,3 +1,5 @@
+#
+
 # JavaScript 2 Course Assignment
 
 ## 2023/4 Study Plan
@@ -18,7 +20,6 @@ This project comes with some basic unit tests. They can be used to get instant f
 
 Example to test your login function: `npx vitest login`
 
-
 ### Resources
 
 - Noroff API Documentation:  
@@ -26,4 +27,3 @@ Example to test your login function: `npx vitest login`
 
 - Noroff API Swagger:  
   https://v2.api.noroff.dev/docs/static/index.html#/social-profiles
-

@@ -17,7 +17,7 @@ export function createUpdateProfileForm() {
 
   const container = document.createElement("div");
   container.className =
-    "max-small-container bg-secondary-50 rounded-lg p-8 shadow-md w-full max-w-5xl";
+    "max-small-container bg-secondary-50 rounded-lg p-8 shadow-md w-full max-w-6xl";
   section.appendChild(container);
 
   const h4 = document.createElement("h4");

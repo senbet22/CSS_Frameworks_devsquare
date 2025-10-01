@@ -8,18 +8,18 @@ const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 // Icon Toggling
 const iconToggle = () => {
-  moonIcons.forEach((icon) => icon.classList.toggle("display-none"));
-  sunIcons.forEach((icon) => icon.classList.toggle("display-none"));
+  moonIcons.forEach((icon) => icon.classList.toggle("hidden"));
+  sunIcons.forEach((icon) => icon.classList.toggle("hidden"));
 };
 
 // Initial Theme Check
 const themeCheck = () => {
   if (userTheme === "dark" || (!userTheme && systemTheme)) {
     document.documentElement.classList.add("dark");
-    moonIcons.forEach((icon) => icon.classList.add("display-none"));
+    moonIcons.forEach((icon) => icon.classList.add("hidden"));
     return;
   }
-  sunIcons.forEach((icon) => icon.classList.add("display-none"));
+  sunIcons.forEach((icon) => icon.classList.add("hidden"));
 };
 
 // Manual Theme Switch

@@ -22,7 +22,7 @@
           />
         </a>
         <nav
-          class="max-w-5xl text-text-950 font-medium text-2xl hidden sm:flex justify-end gap-6 w-full"
+          class="max-w-6xl text-text-950 font-medium text-2xl hidden sm:flex justify-end gap-6 w-full"
           id="navbar"
         >
           <a class="hover:text-secondary-400" href="/">Home</a>
@@ -128,7 +128,7 @@
         </h1>
       </section>
       <section
-        class="max-w-5xl mx-auto flex flex-col items-center shadow-primary shadow-xl"
+        class="max-w-6xl mx-auto flex flex-col items-center shadow-primary shadow-xl"
         id="home-section"
       >
         <div
@@ -166,70 +166,143 @@
             <p class="max-page">of</p>
           </div>
         </div>
-
         <div
-          class="grid grid-cols-1 gap-auto gap-6 auto-rows-auto max-w-96 md:max-w-none md:grid-cols-2 lg:grid-cols-3 text-text-950 sm:px-8"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6 text-text-900"
           id="posts-container"
         >
-          <!-- Addd loader tailwind here!! -->
-          <div class="w-full bg-primary-200">
-            <p
-              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></p>
-            <h1
-              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></h1>
-            <div
-              class="w-full h-64 bg-gray-200 rounded-lg dark:bg-gray-600"
-            ></div>
+          <!-- Loader Skeleton -->
+          <div
+            class="flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden animate-pulse w-full max-w-xl mx-auto my-6"
+          >
+            <!-- Image skeleton -->
+            <div class="w-full h-64 bg-gray-200 dark:bg-gray-700"></div>
 
-            <h1
-              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></h1>
-            <p
-              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></p>
+            <!-- Content wrapper -->
+            <div class="p-6 flex flex-col gap-4">
+              <!-- Title skeleton -->
+              <div class="h-6 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+
+              <!-- Author & comments skeleton -->
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 bg-gray-300 dark:bg-gray-600 rounded-full"
+                  ></div>
+                  <div
+                    class="h-4 bg-gray-300 dark:bg-gray-600 rounded w-24"
+                  ></div>
+                </div>
+                <div
+                  class="h-4 bg-gray-300 dark:bg-gray-600 rounded w-12"
+                ></div>
+              </div>
+
+              <!-- Date skeleton -->
+              <div class="flex justify-between text-gray-400 text-sm mt-2">
+                <div
+                  class="h-3 bg-gray-300 dark:bg-gray-600 rounded w-16"
+                ></div>
+                <div
+                  class="h-3 bg-gray-300 dark:bg-gray-600 rounded w-20"
+                ></div>
+              </div>
+            </div>
           </div>
 
-          <div class="w-full bg-primary-200">
-            <p
-              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></p>
-            <h1
-              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></h1>
-            <div
-              class="w-full h-64 bg-gray-200 rounded-lg dark:bg-gray-600"
-            ></div>
-
-            <h1
-              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></h1>
-            <p
-              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></p>
+          <!-- Duplicate as needed for multiple loaders -->
+          <div
+            class="flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden animate-pulse w-full max-w-xl mx-auto my-6"
+          >
+            <div class="w-full h-64 bg-gray-200 dark:bg-gray-700"></div>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="h-6 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 bg-gray-300 dark:bg-gray-600 rounded-full"
+                  ></div>
+                  <div
+                    class="h-4 bg-gray-300 dark:bg-gray-600 rounded w-24"
+                  ></div>
+                </div>
+                <div
+                  class="h-4 bg-gray-300 dark:bg-gray-600 rounded w-12"
+                ></div>
+              </div>
+              <div class="flex justify-between text-gray-400 text-sm mt-2">
+                <div
+                  class="h-3 bg-gray-300 dark:bg-gray-600 rounded w-16"
+                ></div>
+                <div
+                  class="h-3 bg-gray-300 dark:bg-gray-600 rounded w-20"
+                ></div>
+              </div>
+            </div>
           </div>
-
-          <div class="w-full bg-primary-200">
-            <p
-              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></p>
-            <h1
-              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></h1>
-            <div
-              class="w-full h-64 bg-gray-200 rounded-lg dark:bg-gray-600"
-            ></div>
-
-            <h1
-              class="w-56 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></h1>
-            <p
-              class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"
-            ></p>
+          <!-- Duplicate as needed for multiple loaders -->
+          <div
+            class="flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden animate-pulse w-full max-w-xl mx-auto my-6"
+          >
+            <div class="w-full h-64 bg-gray-200 dark:bg-gray-700"></div>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="h-6 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 bg-gray-300 dark:bg-gray-600 rounded-full"
+                  ></div>
+                  <div
+                    class="h-4 bg-gray-300 dark:bg-gray-600 rounded w-24"
+                  ></div>
+                </div>
+                <div
+                  class="h-4 bg-gray-300 dark:bg-gray-600 rounded w-12"
+                ></div>
+              </div>
+              <div class="flex justify-between text-gray-400 text-sm mt-2">
+                <div
+                  class="h-3 bg-gray-300 dark:bg-gray-600 rounded w-16"
+                ></div>
+                <div
+                  class="h-3 bg-gray-300 dark:bg-gray-600 rounded w-20"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicate as needed for multiple loaders -->
+          <div
+            class="flex flex-col bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden animate-pulse w-full max-w-xl mx-auto my-6"
+          >
+            <div class="w-full h-64 bg-gray-200 dark:bg-gray-700"></div>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="h-6 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-10 h-10 bg-gray-300 dark:bg-gray-600 rounded-full"
+                  ></div>
+                  <div
+                    class="h-4 bg-gray-300 dark:bg-gray-600 rounded w-24"
+                  ></div>
+                </div>
+                <div
+                  class="h-4 bg-gray-300 dark:bg-gray-600 rounded w-12"
+                ></div>
+              </div>
+              <div class="flex justify-between text-gray-400 text-sm mt-2">
+                <div
+                  class="h-3 bg-gray-300 dark:bg-gray-600 rounded w-16"
+                ></div>
+                <div
+                  class="h-3 bg-gray-300 dark:bg-gray-600 rounded w-20"
+                ></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+      <p class="w-24 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+
       <div
         id="bottom-paginator"
         class="flex items-center justify-center space-x-4 m-10 pb-10 text-lg text-text-950"
