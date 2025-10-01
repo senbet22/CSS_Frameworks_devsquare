@@ -34,6 +34,9 @@ export async function initProfilePage(user) {
 
   populateProfileInfo(generalInfo);
 
+  // Dynamic title
+  document.title = user;
+
   const comparingUsers = compareUsers(user);
 
   if (comparingUsers === true) {
@@ -53,8 +56,16 @@ export async function initProfilePage(user) {
   }
   const isFollowing = checkFollowingStatus(followers);
   updateFollowButton(isFollowing, generalInfo.name);
-  createProfileLink(followers, `${generalInfo.name} currently has no followers`, "followers");
-  createProfileLink(following, `${generalInfo.name} is not following anybody currently`, "following");
+  createProfileLink(
+    followers,
+    `${generalInfo.name} currently has no followers`,
+    "followers"
+  );
+  createProfileLink(
+    following,
+    `${generalInfo.name} is not following anybody currently`,
+    "following"
+  );
 
   handleSectionDisplay(generalInfo.name);
 

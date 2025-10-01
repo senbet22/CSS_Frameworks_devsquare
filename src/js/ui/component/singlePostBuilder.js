@@ -104,9 +104,6 @@ export function createPostContent(post) {
     deleteBtn.setAttribute("data-id", id);
 
     deleteBtn.addEventListener("click", (event) => {
-      const deletePost = confirm("Do you really want to delete this post?");
-      if (!deletePost) return;
-
       onDeletePost(event);
     });
 
