@@ -1,29 +1,74 @@
-#
+# CSS Frameworks – Social Media Application
 
-# JavaScript 2 Course Assignment
+## Project Overview:
 
-## 2023/4 Study Plan
+This project is a client-side social media application built with **Vanilla JavaScript** and **Vite** (Multi-Page Application mode).  
+The app allows users to perform full **CRUD operations** (Create, Read, Update, Delete) on their posts, as well as interact socially with other users through features like:
 
-### Introduction
+- Following / unfollowing users
+- Commenting on posts
+- Reacting to posts with emojis
 
-In this course assignment, you will be building a client-side social media application. This application will allow users to perform CRUD operations (Create, Read, Update, and Delete) on their own posts, as well as enable additional features such as following/unfollowing users, commenting on posts, and reacting to a post with an emoji.
+The focus was on **app logic first**, with styling applied later.
 
-Unlike previous projects, you will be working on the app logic first and styling the application later.
+---
 
-### Project Template
+![DuneStay Homepage Preview](/public/images/devsquare_preview.png)
 
-This project has been set up with a Vite template using Vanilla JavaScript settings, using MPA (Multi-page application) mode. Additional HTML pages not originally included in the project template must be listed in the `vite.config.js` file.
+## ⚡ Tech Stack
 
-The template contains JavaScript files that must be finished to complete this assignment.
+- **Vite** (MPA mode)
+- **Vanilla JavaScript**
+- **Noroff Social API** (v2)
+- **TailwindCSS**
+- **Vitest** (for unit testing)
 
-This project comes with some basic unit tests. They can be used to get instant feedback while developing. To run all tests write `npm run test` in your console. To only test a specific file write `npx vitest <name-of-file>`.
+---
 
-Example to test your login function: `npx vitest login`
+## 📝 How to Set Up the Project
 
-### Resources
+To get a copy of this project, you can clone the repository:
 
-- Noroff API Documentation:  
-  https://docs.noroff.dev/docs/v2/social/posts
+```bash
+git clone https://github.com/senbet22/CSS_Frameworks_devsquare
+```
 
-- Noroff API Swagger:  
-  https://v2.api.noroff.dev/docs/static/index.html#/social-profiles
+Alternatively, you can download the ZIP file and extract it.
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+#### 🏁 Run the Development Server
+
+This generates optimized, production-ready files in the dist/ folder.
+
+```bash
+npm run dev
+```
+
+To start your project locally:
+
+```bash
+npm run build
+```
+
+## 🔑 Environment Variables
+
+_This project requires an API key to access certain features._
+
+1. Get your API key from the [Noroff API Key Tool](https://docs.noroff.dev/docs/v2/auth/api-key#api-key-tool).
+2. Create a .env file in the project root.
+3. Inside the .env file Add your key like this:
+   `VITE_API_KEY=your_api_key`
+4. Add .env in .gitignore file for security.
+
+### 📞 Contact
+
+[My GitHub Profile](https://github.com/senbet22)
+
+###
+
+[Back to Top](#readme)
