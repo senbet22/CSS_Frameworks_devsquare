@@ -11,7 +11,7 @@
     />
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body class="bg-background-50">
+  <body class="bg-background-100">
     <header class="w-full sticky top-0 left-0 shadow-md z-50 justify-between">
       <div class="px-10 h-20 flex items-center bg-secondary-50">
         <a href="/">
@@ -167,7 +167,7 @@
           </div>
         </div>
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6 text-text-900"
+          class="grid grid-cols-1 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6 text-text-900"
           id="posts-container"
         >
           <!-- Loader Skeleton -->
@@ -339,15 +339,8 @@
 
     <!-- Footer -->
     <footer
-      class="bg-background opacity-50 shadow-lg text-text-950 flex flex-col sm:flex-row justify-between items-center px-6 lg:px-20 py-6"
+      class="bg-secondary-50 shadow-lg text-text-950 flex flex-col sm:flex-row justify-between items-center px-6 lg:px-20 py-6"
     >
-      <div class="self-start sm:self-center">
-        <img
-          class="my-10 h-10 lg:h-20"
-          src="/images/noroff-logo.png"
-          alt="noroff logo"
-        />
-      </div>
       <div class="text-right">
         <ul class="text-left">
           <li>

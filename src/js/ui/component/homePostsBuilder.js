@@ -76,7 +76,7 @@ export function renderPosts(posts, pageCount) {
 
     // Dates
     const dateDiv = document.createElement("div");
-    dateDiv.className = "flex justify-between text-text-700 mt-2";
+    dateDiv.className = "flex justify-between text-text-900 mt-2";
     const createdDate = document.createElement("p");
     createdDate.textContent = post.created.slice(0, 10);
     const timeStamp = document.createElement("p");
