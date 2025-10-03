@@ -13,7 +13,7 @@ The focus was on **app logic first**, with styling applied later.
 
 ---
 
-![DuneStay Homepage Preview](/public/images/devsquare_preview.png)
+![DuneStay Homepage Preview](/public/images/devsquare_preview.jpg)
 
 ## ⚡ Tech Stack
 
